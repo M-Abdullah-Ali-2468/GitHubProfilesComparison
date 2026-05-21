@@ -76,8 +76,8 @@ router.post("/compare", async (req, res) => {
     res.json(result);
   } catch (error) {
     // Handle specific error types
-    if (error.statusCode === 404) {
-      return res.status(404).json({ error: error.message });
+    if (error.statusCode === 404 || error.statusCode === 403) {
+      return res.status(error.statusCode).json({ error: error.message });
     }
 
     if (error.code === "ECONNABORTED") {

@@ -27,6 +27,12 @@ async function getUserData(username) {
       throw notFoundError;
     }
 
+    if (error.response && error.response.status === 403) {
+      const rateLimitError = new Error("GitHub API rate limit exceeded. Please try again later.");
+      rateLimitError.statusCode = 403;
+      throw rateLimitError;
+    }
+
     throw new Error("Failed to fetch GitHub data");
   }
 }
