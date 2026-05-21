@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Compare two GitHub profiles side by side — followers, repos, languages and more." />
+  <title>GitHub Profile Comparator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>GitHub Profile Comparator</h1>
+    <p class="subtitle">Compare two GitHub users side by side</p>
+
+    <!-- Input Form -->
+    <div class="input-section">
+      <input type="text" id="username1" placeholder="Username 1 (e.g. octocat)" />
+      <input type="text" id="username2" placeholder="Username 2 (e.g. torvalds)" />
+      <button id="compareBtn">Compare</button>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error" class="error hidden"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Fetching data from GitHub...</p>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="results hidden">
+      <!-- User Cards -->
+      <div class="user-cards">
+        <div class="user-card" id="card1">
+          <img id="avatar1" class="avatar" src="" alt="User 1 avatar" />
+          <h2 id="name1" class="username"></h2>
+        </div>
+        <div class="vs">VS</div>
+        <div class="user-card" id="card2">
+          <img id="avatar2" class="avatar" src="" alt="User 2 avatar" />
+          <h2 id="name2" class="username"></h2>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th id="th1">User 1</th>
+            <th id="th2">User 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Followers</td>
+            <td id="followers1"></td>
+            <td id="followers2"></td>
+          </tr>
+          <tr>
+            <td>Following</td>
+            <td id="following1"></td>
+            <td id="following2"></td>
+          </tr>
+          <tr>
+            <td>Public Repos</td>
+            <td id="repos1"></td>
+            <td id="repos2"></td>
+          </tr>
+          <tr>
+            <td>Top Starred Repo</td>
+            <td id="topRepo1"></td>
+            <td id="topRepo2"></td>
+          </tr>
+          <tr>
+            <td>Most Used Language</td>
+            <td id="language1"></td>
+            <td id="language2"></td>
+          </tr>
+          <tr>
+            <td>Account Age</td>
+            <td id="age1"></td>
+            <td id="age2"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
